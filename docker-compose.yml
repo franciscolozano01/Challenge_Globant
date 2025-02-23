@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:admin@db:5432/postgres
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
+
+# # frontend & backend (docker)
+# docker-compose up --build
+
+# source venv/bin/activate
+# deactivate
+
+# pip freeze > requirements.txt
+
+# # backend
+# uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload
+
+# # frontend
+# npm run dev
