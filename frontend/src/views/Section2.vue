@@ -99,7 +99,6 @@ export default {
       this.tableData02 = null;
 
       try {
-        // Petición al endpoint que ejecuta la "segunda consulta"
         const response = await fetch("http://localhost:8080/api/query/handleSecondQuery");
         if (!response.ok) {
           throw new Error("Error fetching Query 02");

@@ -40,3 +40,5 @@ services:
 
 # # frontend
 # npm run dev
+
+# git remote add origin https://github.com/franciscolozano01/ChallengeGlobant.git

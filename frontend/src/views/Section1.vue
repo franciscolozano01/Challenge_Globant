@@ -31,7 +31,6 @@
           outlined
           @change="handleFileChange"
         />
-        <!-- Mostrar el nombre del archivo si existe -->
         <div v-if="selectedFileName">
           Archivo seleccionado: {{ selectedFileName }}
         </div>
@@ -46,7 +45,6 @@
             <strong>Message:</strong> {{ tableData.message }}
           </v-alert>
 
-          <!-- Mensaje de error -->
           <v-alert
             type="error"
             v-if="tableData && tableData.detail"
@@ -155,12 +153,11 @@ export default {
           console.warn("El archivo no tiene MIME type text/csv, es:", file.type);
         };
 
-        // Leer el contenido como texto
         const reader = new FileReader();
         reader.onload = e => {
           const text = e.target.result;
           console.log("Contenido CSV:", text);
-          // Aquí puedes procesar el CSV, contar líneas, etc.
+
         };
         reader.onerror = err => {
           throw new Error("Error reading file: " + err);
@@ -170,14 +167,13 @@ export default {
 
       } catch (error) {
         console.error(error);
-        // Si usas una variable para mostrar errores en el template
         this.errorMessage = error.message;
       }
     },
     async handleAction() {
       this.errorMessage = "";
       this.tableData = { data: [] };
-      this.headers = []; // Reiniciar encabezados antes de consultar datos
+      this.headers = [];
 
       if (this.actionType === "view") {
         try {
