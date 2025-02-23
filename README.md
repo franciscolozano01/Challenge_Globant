@@ -106,23 +106,24 @@ Project Structure
 The general structure of the project is as follows:
 
 challenge-globant/
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   ├── models.py
-│   │   ├── routes/
-│   │   └── ... 
-│   ├── requirements.txt
-│   └── Dockerfile
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── views/
-│   │   └── ...
-│   ├── package.json
-│   └── Dockerfile
-├── docker-compose.yml
-└── README.md
+--- backend/
+------ app/
+--------- main.py
+--------- models.py
+--------- routes/
+--------- ... 
+------ requirements.txt
+------ Dockerfile
+--- frontend/
+------ src/
+--------- components/
+--------- views/
+--------- ...
+------ package.json
+------ Dockerfile
+--- docker-compose.yml
+--- README.md
+
 Endpoints
 
 The following endpoints have been implemented:
